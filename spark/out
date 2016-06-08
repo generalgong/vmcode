@@ -1,0 +1,111 @@
+16/05/26 17:30:35 INFO spark.SparkContext: Running Spark version 1.5.0
+16/05/26 17:30:36 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+16/05/26 17:30:36 WARN util.Utils: Your hostname, brian0 resolves to a loopback address: 127.0.1.1; using 192.168.200.170 instead (on interface eth0)
+16/05/26 17:30:36 WARN util.Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+16/05/26 17:30:36 INFO spark.SecurityManager: Changing view acls to: hduser
+16/05/26 17:30:36 INFO spark.SecurityManager: Changing modify acls to: hduser
+16/05/26 17:30:36 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: Set(hduser); users with modify permissions: Set(hduser)
+16/05/26 17:30:37 INFO slf4j.Slf4jLogger: Slf4jLogger started
+16/05/26 17:30:37 INFO Remoting: Starting remoting
+16/05/26 17:30:37 INFO Remoting: Remoting started; listening on addresses :[akka.tcp://sparkDriver@192.168.200.170:40425]
+16/05/26 17:30:37 INFO util.Utils: Successfully started service 'sparkDriver' on port 40425.
+16/05/26 17:30:37 INFO spark.SparkEnv: Registering MapOutputTracker
+16/05/26 17:30:37 INFO spark.SparkEnv: Registering BlockManagerMaster
+16/05/26 17:30:37 INFO storage.DiskBlockManager: Created local directory at /tmp/blockmgr-c7dc6bb2-4aee-4963-ab51-57d21b9f7cf4
+16/05/26 17:30:37 INFO storage.MemoryStore: MemoryStore started with capacity 530.0 MB
+16/05/26 17:30:38 INFO spark.HttpFileServer: HTTP File server directory is /tmp/spark-9844073e-e0b9-439c-9ab0-3b08893013a7/httpd-5db7676e-e45e-44e4-a4f1-67a21a4b143d
+16/05/26 17:30:38 INFO spark.HttpServer: Starting HTTP Server
+16/05/26 17:30:38 INFO server.Server: jetty-8.y.z-SNAPSHOT
+16/05/26 17:30:38 INFO server.AbstractConnector: Started SocketConnector@0.0.0.0:46056
+16/05/26 17:30:38 INFO util.Utils: Successfully started service 'HTTP file server' on port 46056.
+16/05/26 17:30:38 INFO spark.SparkEnv: Registering OutputCommitCoordinator
+16/05/26 17:30:38 INFO server.Server: jetty-8.y.z-SNAPSHOT
+16/05/26 17:30:38 INFO server.AbstractConnector: Started SelectChannelConnector@0.0.0.0:4040
+16/05/26 17:30:38 INFO util.Utils: Successfully started service 'SparkUI' on port 4040.
+16/05/26 17:30:38 INFO ui.SparkUI: Started SparkUI at http://192.168.200.170:4040
+16/05/26 17:30:38 INFO util.Utils: Copying /home/hduser/code/spark/initSpark.py to /tmp/spark-9844073e-e0b9-439c-9ab0-3b08893013a7/userFiles-a66db505-e6fb-4438-9e4d-cf4e841871da/initSpark.py
+16/05/26 17:30:38 INFO spark.SparkContext: Added file file:/home/hduser/code/spark/initSpark.py at file:/home/hduser/code/spark/initSpark.py with timestamp 1464255038793
+16/05/26 17:30:38 WARN metrics.MetricsSystem: Using default name DAGScheduler for source because spark.app.id is not set.
+16/05/26 17:30:38 INFO executor.Executor: Starting executor ID driver on host localhost
+16/05/26 17:30:39 INFO util.Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 34708.
+16/05/26 17:30:39 INFO netty.NettyBlockTransferService: Server created on 34708
+16/05/26 17:30:39 INFO storage.BlockManagerMaster: Trying to register BlockManager
+16/05/26 17:30:39 INFO storage.BlockManagerMasterEndpoint: Registering block manager localhost:34708 with 530.0 MB RAM, BlockManagerId(driver, localhost, 34708)
+16/05/26 17:30:39 INFO storage.BlockManagerMaster: Registered BlockManager
+16/05/26 17:30:40 INFO storage.MemoryStore: ensureFreeSpace(217576) called with curMem=0, maxMem=555755765
+16/05/26 17:30:40 INFO storage.MemoryStore: Block broadcast_0 stored as values in memory (estimated size 212.5 KB, free 529.8 MB)
+16/05/26 17:30:40 INFO storage.MemoryStore: ensureFreeSpace(20022) called with curMem=217576, maxMem=555755765
+16/05/26 17:30:40 INFO storage.MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 19.6 KB, free 529.8 MB)
+16/05/26 17:30:40 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on localhost:34708 (size: 19.6 KB, free: 530.0 MB)
+16/05/26 17:30:40 INFO spark.SparkContext: Created broadcast 0 from textFile at NativeMethodAccessorImpl.java:-2
+16/05/26 17:30:41 INFO mapred.FileInputFormat: Total input paths to process : 1
+16/05/26 17:30:41 INFO spark.SparkContext: Starting job: runJob at PythonRDD.scala:361
+16/05/26 17:30:41 INFO scheduler.DAGScheduler: Got job 0 (runJob at PythonRDD.scala:361) with 1 output partitions
+16/05/26 17:30:41 INFO scheduler.DAGScheduler: Final stage: ResultStage 0(runJob at PythonRDD.scala:361)
+16/05/26 17:30:41 INFO scheduler.DAGScheduler: Parents of final stage: List()
+16/05/26 17:30:41 INFO scheduler.DAGScheduler: Missing parents: List()
+16/05/26 17:30:41 INFO scheduler.DAGScheduler: Submitting ResultStage 0 (PythonRDD[3] at RDD at PythonRDD.scala:43), which has no missing parents
+16/05/26 17:30:41 INFO storage.MemoryStore: ensureFreeSpace(5136) called with curMem=237598, maxMem=555755765
+16/05/26 17:30:41 INFO storage.MemoryStore: Block broadcast_1 stored as values in memory (estimated size 5.0 KB, free 529.8 MB)
+16/05/26 17:30:41 INFO storage.MemoryStore: ensureFreeSpace(3062) called with curMem=242734, maxMem=555755765
+16/05/26 17:30:41 INFO storage.MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 3.0 KB, free 529.8 MB)
+16/05/26 17:30:41 INFO storage.BlockManagerInfo: Added broadcast_1_piece0 in memory on localhost:34708 (size: 3.0 KB, free: 530.0 MB)
+16/05/26 17:30:41 INFO spark.SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:861
+16/05/26 17:30:41 INFO scheduler.DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (PythonRDD[3] at RDD at PythonRDD.scala:43)
+16/05/26 17:30:41 INFO scheduler.TaskSchedulerImpl: Adding task set 0.0 with 1 tasks
+16/05/26 17:30:41 INFO scheduler.TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0, localhost, ANY, 2203 bytes)
+16/05/26 17:30:41 INFO executor.Executor: Running task 0.0 in stage 0.0 (TID 0)
+16/05/26 17:30:41 INFO executor.Executor: Fetching file:/home/hduser/code/spark/initSpark.py with timestamp 1464255038793
+16/05/26 17:30:41 INFO util.Utils: /home/hduser/code/spark/initSpark.py has been previously copied to /tmp/spark-9844073e-e0b9-439c-9ab0-3b08893013a7/userFiles-a66db505-e6fb-4438-9e4d-cf4e841871da/initSpark.py
+16/05/26 17:30:42 INFO rdd.HadoopRDD: Input split: hdfs://192.168.200.170:9000/input/README.md:0+3590
+16/05/26 17:30:42 INFO Configuration.deprecation: mapred.tip.id is deprecated. Instead, use mapreduce.task.id
+16/05/26 17:30:42 INFO Configuration.deprecation: mapred.task.id is deprecated. Instead, use mapreduce.task.attempt.id
+16/05/26 17:30:42 INFO Configuration.deprecation: mapred.task.is.map is deprecated. Instead, use mapreduce.task.ismap
+16/05/26 17:30:42 INFO Configuration.deprecation: mapred.task.partition is deprecated. Instead, use mapreduce.task.partition
+16/05/26 17:30:42 INFO Configuration.deprecation: mapred.job.id is deprecated. Instead, use mapreduce.job.id
+16/05/26 17:30:42 INFO python.PythonRDD: Times: total = 369, boot = 238, init = 131, finish = 0
+16/05/26 17:30:42 INFO executor.Executor: Finished task 0.0 in stage 0.0 (TID 0). 2143 bytes result sent to driver
+16/05/26 17:30:42 INFO scheduler.DAGScheduler: ResultStage 0 (runJob at PythonRDD.scala:361) finished in 0.679 s
+16/05/26 17:30:42 INFO scheduler.TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 646 ms on localhost (1/1)
+16/05/26 17:30:42 INFO scheduler.DAGScheduler: Job 0 finished: runJob at PythonRDD.scala:361, took 0.956631 s
+16/05/26 17:30:42 INFO scheduler.TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+16/05/26 17:30:42 INFO spark.SparkContext: Invoking stop() from shutdown hook
+16/05/26 17:30:42 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/metrics/json,null}
+16/05/26 17:30:42 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/stages/stage/kill,null}
+16/05/26 17:30:42 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/api,null}
+16/05/26 17:30:42 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/,null}
+16/05/26 17:30:42 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/static,null}
+16/05/26 17:30:42 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/executors/threadDump/json,null}
+16/05/26 17:30:42 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/executors/threadDump,null}
+16/05/26 17:30:42 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/executors/json,null}
+16/05/26 17:30:42 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/executors,null}
+16/05/26 17:30:42 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/environment/json,null}
+16/05/26 17:30:42 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/environment,null}
+16/05/26 17:30:42 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/storage/rdd/json,null}
+16/05/26 17:30:42 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/storage/rdd,null}
+16/05/26 17:30:42 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/storage/json,null}
+16/05/26 17:30:42 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/storage,null}
+16/05/26 17:30:42 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/stages/pool/json,null}
+16/05/26 17:30:42 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/stages/pool,null}
+16/05/26 17:30:42 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/stages/stage/json,null}
+16/05/26 17:30:42 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/stages/stage,null}
+16/05/26 17:30:42 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/stages/json,null}
+16/05/26 17:30:42 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/stages,null}
+16/05/26 17:30:42 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/jobs/job/json,null}
+16/05/26 17:30:42 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/jobs/job,null}
+16/05/26 17:30:42 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/jobs/json,null}
+16/05/26 17:30:42 INFO handler.ContextHandler: stopped o.s.j.s.ServletContextHandler{/jobs,null}
+16/05/26 17:30:42 INFO ui.SparkUI: Stopped Spark web UI at http://192.168.200.170:4040
+16/05/26 17:30:42 INFO scheduler.DAGScheduler: Stopping DAGScheduler
+16/05/26 17:30:42 INFO spark.MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+16/05/26 17:30:42 INFO storage.MemoryStore: MemoryStore cleared
+16/05/26 17:30:42 INFO storage.BlockManager: BlockManager stopped
+16/05/26 17:30:42 INFO storage.BlockManagerMaster: BlockManagerMaster stopped
+16/05/26 17:30:42 INFO spark.SparkContext: Successfully stopped SparkContext
+16/05/26 17:30:42 INFO scheduler.OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+16/05/26 17:30:42 INFO util.ShutdownHookManager: Shutdown hook called
+16/05/26 17:30:42 INFO util.ShutdownHookManager: Deleting directory /tmp/spark-9844073e-e0b9-439c-9ab0-3b08893013a7/pyspark-9c1a2702-bc9f-4d5f-bfd8-0aa7813640f8
+16/05/26 17:30:42 INFO util.ShutdownHookManager: Deleting directory /tmp/spark-9844073e-e0b9-439c-9ab0-3b08893013a7
+16/05/26 17:30:42 INFO remote.RemoteActorRefProvider$RemotingTerminator: Shutting down remote daemon.
+16/05/26 17:30:42 INFO remote.RemoteActorRefProvider$RemotingTerminator: Remote daemon shut down; proceeding with flushing remote transports.
+16/05/26 17:30:42 INFO remote.RemoteActorRefProvider$RemotingTerminator: Remoting shut down.
