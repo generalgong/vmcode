@@ -2,6 +2,8 @@
 import json
 import codecs
 import html2text
+import jieba
+
 # Define your item pipelines here
 #
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
@@ -12,8 +14,7 @@ class BlogspyderPipeline(object):
     def __init__(self):
         self.file =self.file = codecs.open('blogitems.json', mode='wb', encoding='utf-8')
     def process_item(self, item, spider):
-        #print("In pipline: item.title= %s" % item["pageTitle"])
-        item["pageContent"] = html2text.html2text(''.join(item["pageContent"]))
+        item["pageContent"] =" / ".join(jieba.cut( html2text.html2text(''.join(item["pageContent"])), cut_all=True))
         line = json.dumps(dict(item) )+'\n'
         self.file.write(line.decode("unicode_escape"))
         return item
