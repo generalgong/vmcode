@@ -46,3 +46,4 @@ class BlogSpider(Spider):
             url = "http://blog.csdn.net" + url
             print("Download URL: %s" % url)
             yield Request(url, callback=self.parse)
+            
