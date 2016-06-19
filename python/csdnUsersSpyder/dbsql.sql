@@ -10,3 +10,6 @@ CREATE TABLE BlogUser (
         befollowedNum INT,
         PRIMARY KEY ( pageID )
 );
+
+SELECT * from BlogUser where username in (select `username` from `BlogUser` group by `username`  having count(*)>1 order by `username` desc
+) order by `username` desc #select deplicated user;
