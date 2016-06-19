@@ -8,6 +8,5 @@ CREATE TABLE BlogUser (
         befollowed varchar(512),
         followNum INT,
         befollowedNum INT,
-        name VARCHAR(255),
         PRIMARY KEY ( pageID )
 );

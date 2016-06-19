@@ -32,11 +32,10 @@ class BlogSpider(Spider):
             unameMark = re.findall(r'username="\b.*"',u)
             (s,e) = re.search(r'".*"',unameMark[0]).span()
             uname = unameMark[0][s+1:e-1]
-            print "uname: %s\n" % uname
             if i <= 7:
-                item["follow"].append(uname)
+                item["follow"].append(uname.encode('utf-8'))
             else:
-                item["befollowed"].append(uname)
+                item["befollowed"].append(uname.encode('utf-8'))
             yield Request("http://my.csdn.net/"+uname , callback=self.parse)
             i += 1
         item["pageUrl"] = str(response.url)
