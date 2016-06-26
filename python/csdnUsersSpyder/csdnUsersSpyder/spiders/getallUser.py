@@ -6,6 +6,7 @@ from scrapy.selector import Selector
 from GetMD5 import GetMD5
 from csdnUsersSpyder.items import CsdnusersspyderItem
 from pybloom import BloomFilter
+import time
 import re
 import sys
 class BlogSpider(Spider):  
@@ -15,7 +16,7 @@ class BlogSpider(Spider):
         self.f = BloomFilter(capacity=10000000, error_rate=0.0001)
     name = "csdnUserScrapy"  
     #减慢爬取速度 为2s  
-    download_delay = 2 
+    download_delay = 0.5 
     allowed_domains = ["my.csdn.net"]  
     start_urls = [ 
     "http://my.csdn.net/jiazhijun","http://my.csdn.net/sodino","http://my.csdn.net/bill_man","http://my.csdn.net/lhc2207221755","http://my.csdn.net/xgbing","http://my.csdn.net/LoongEmbedded","http://my.csdn.net/jdh99","http://my.csdn.net/zqiang_55","http://my.csdn.net/zhao_zepeng","http://my.csdn.net/linyt","http://my.csdn.net/kmyhy","http://my.csdn.net/lincyang","http://my.csdn.net/jdsjlzx","http://my.csdn.net/u011012932","http://my.csdn.net/yayun0516","http://my.csdn.net/qq_23547831","http://my.csdn.net/CHENYUFENG1991","http://my.csdn.net/qq_26787115","http://my.csdn.net/kongki","http://my.csdn.net/you23hai45","http://my.csdn.net/cometwo","http://my.csdn.net/yuanziok","http://my.csdn.net/woxueliuyun","http://my.csdn.net/gatieme","http://my.csdn.net/u010850027","http://my.csdn.net/yinwenjie","http://my.csdn.net/teamlet","http://my.csdn.net/wangyangzhizhou","http://my.csdn.net/xiaoxian8023","http://my.csdn.net/ooppookid","http://my.csdn.net/wsl211511","http://my.csdn.net/liyuanbhu","http://my.csdn.net/sxhelijian","http://my.csdn.net/raylee2007","http://my.csdn.net/luozhuang","http://my.csdn.net/shaqoneal","http://my.csdn.net/dc_726","http://my.csdn.net/tobacco5648","http://my.csdn.net/wowkk","http://my.csdn.net/csfreebird","http://my.csdn.net/xukai871105","http://my.csdn.net/tuzongxun","http://my.csdn.net/mchdba","http://my.csdn.net/lichangzai","http://my.csdn.net/leftfist","http://my.csdn.net/wonder4","http://my.csdn.net/fogyisland2000","http://my.csdn.net/smstong","http://my.csdn.net/david_520042","http://my.csdn.net/ghostbear","http://my.csdn.net/xuyaqun","http://my.csdn.net/force_eagle","http://my.csdn.net/Jmilk","http://my.csdn.net/xiangpingli","http://my.csdn.net/quqi99","http://my.csdn.net/michaelzhou224","http://my.csdn.net/zzq900503","http://my.csdn.net/pipisorry","http://my.csdn.net/zhangmike","http://my.csdn.net/foruok","http://my.csdn.net/fengbingchun","http://my.csdn.net/qingrun","http://my.csdn.net/harrymeng","http://my.csdn.net/pukuimin1226","http://my.csdn.net/lihuoming","http://my.csdn.net/zhazha1980518","http://my.csdn.net/redarmy_chen","http://my.csdn.net/yuanmeng001","http://my.csdn.net/yeka","http://my.csdn.net/xieqq","http://my.csdn.net/zhangxiaoxiang","http://my.csdn.net/oiio","http://my.csdn.net/jobchanceleo","http://my.csdn.net/broadview2006"
@@ -63,3 +64,5 @@ class BlogSpider(Spider):
         item["pageMD5"] =GetMD5.getMD5(item["pageUrl"])
         yield item
         self.pageNumber = self.pageNumber +1
+        if self.pageNumber % 1000 == 0:
+            time.sleep(15)
