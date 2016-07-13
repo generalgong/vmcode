@@ -1,8 +1,8 @@
 ----------------------------------------------------------------
-Sun Jul 10 03:40:44 HKT 2016:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.1.1 - (1458268): instance a816c00e-0155-d12d-24a3-00002fd943c0 
-on database directory /home/hduser/code/vmcode/spark/gongPG/metastore_db with class loader org.apache.spark.sql.hive.client.IsolatedClientLoader$$anon$1@147892be 
-Loaded from file:/usr/local/spark/lib/spark-assembly-1.5.0-hadoop2.6.0.jar
+Thu Jul 14 03:05:42 HKT 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.1.1 - (1458268): instance a816c00e-0155-e5a6-8035-00002aa7d850 
+on database directory /home/hduser/code/vmcode/spark/gongPG/metastore_db with class loader org.apache.spark.sql.hive.client.IsolatedClientLoader$$anon$1@3b171fbd 
+Loaded from file:/usr/local/spark-1.6/lib/spark-assembly-1.6.2-hadoop2.6.0.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_60-b27
 user.dir=/home/hduser/code/vmcode/spark/gongPG
