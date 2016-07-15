@@ -56,7 +56,11 @@ object gongPR{
         urls.map(url => (url, rank / size))
       }
       //Array[(String, Double)] = Array((D,1.0), (B,1.0), (B,1.0), (A,1.0))
-      ranks = contribs.reduceByKey(_ + _).mapValues(0.15 + 0.85 * _)
+      //ranks = contribs.reduceByKey(_ + _).mapValues(0.15 + 0.85 * _)
+      
+      val stayProblaity = contribs.reduceByKey(_ + _).mapValues( 0.8 * _)
+      val outProbality = ranks.mapValues(x=> 0.2 * x )
+      ranks = stayProblaity.union(outProbality).reduceByKey(_ + _ )
     }
 
     val output = ranks.collect()
