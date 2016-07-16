@@ -12,8 +12,8 @@ from items import BlogspyderItem
 
 class BlogspyderPipeline(object):
     def __init__(self):
-        self.file =self.file = codecs.open('blogitems.json', mode='wb', encoding='utf-8')
-        jieba.load_userdict("/home/hduser/code/vmcode/python/pylibs/jiebiaDict/SougouITWords.txt")
+        self.file = codecs.open('/tmp/blogitems.json', mode='wb', encoding='utf-8')
+        jieba.load_userdict("/home/brain/vmcode/python/pylibs/jiebiaDict/SougouITWords.txt")
     def process_item(self, item, spider):
         item["pageContent"] =" / ".join(jieba.cut( html2text.html2text(''.join(item["pageContent"])), cut_all=False))
         line = json.dumps(dict(item) )+'\n'

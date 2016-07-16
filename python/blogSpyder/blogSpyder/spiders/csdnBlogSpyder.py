@@ -6,6 +6,7 @@ from scrapy.http import Request
 from scrapy.selector import Selector  
 from GetMD5 import GetMD5
 from blogSpyder.items import BlogspyderItem 
+from GetUseHomePageList import getUseHomePage
 import sys
 reload(sys)
 sys.setdefaultencoding("utf-8")
@@ -16,15 +17,16 @@ class BlogSpider(Spider):
     name = "csdnBlogSpyder"  
     #减慢爬取速度 为5s  
     download_delay = 3 
-    allowed_domains = ["blog.csdn.net"]  
+    allowed_domains = ["blog.csdn.net"] 
+    """ 
     start_urls = [  
         #第一篇文章地址  
         "http://blog.csdn.net/u012150179/article/details/11749017"
-    ]  
+    ]  """
+    start_urls = getUseHomePage()
   
     def parse(self, response):  
         sel = Selector(response)  
-  
         #items = []  
         #获得文章url和标题  
         item = BlogspyderItem()  
@@ -45,5 +47,5 @@ class BlogSpider(Spider):
         for url in urls:
             url = "http://blog.csdn.net" + url
             print("Download URL: %s" % url)
-            yield Request(url, callback=self.parse)
+            #yield Request(url, callback=self.parse) #no need new URL
             
