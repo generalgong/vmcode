@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 import json
 import codecs
-import html2text
-import jieba
+from elasticsearch import Elasticsearch
+#import jieba
 
 # Define your item pipelines here
 #
@@ -12,10 +12,19 @@ from items import BlogspyderItem
 
 class BlogspyderPipeline(object):
     def __init__(self):
-        self.file = codecs.open('/tmp/blogitems.json', mode='wb', encoding='utf-8')
-        jieba.load_userdict("/home/brian/vmcode/python/pylibs/jiebiaDict/SougouITWords.txt")
+      
+        self.itemDic = {"pageUrl":"" ,"pageID":"","pageTitle":"","pageContent":"","pageRank":"" }
+        self.es = Elasticsearch("brian1")
+      
+    def __del__(self):
+        self.file.close()
     def process_item(self, item, spider):
-        #item["pageContent"] =" / ".join(jieba.cut( html2text.html2text(''.join(item["pageContent"])), cut_all=False))
-        line = json.dumps(dict(item) )+'\n'
-        self.file.write(line.decode("unicode_escape"))
+
+        self.itemDic["pageUrl"] = item["pageUrl"]
+        self.itemDic["pageID"] = item["pageID"]
+        self.itemDic["pageTitle"] = item["pageTitle"].encode("utf-8")
+        self.itemDic["pageContent"] = item["pageContent"].encode("utf-8")
+
+        self.es.create(index="test-index3", doc_type="csdnblog",body=self.itemDic)
+      
         return item

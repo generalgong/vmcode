@@ -6,6 +6,7 @@ from scrapy.selector import Selector
 from GetMD5 import GetMD5
 from blogSpyder.items import BlogspyderItem 
 from GetUseHomePageList import GetUseHomePage
+from  html2text import html2text
 import json
 import sys
 reload(sys)
@@ -14,10 +15,11 @@ class BlogSpider(Spider):
     def __init__(self):
         self.pageNumber =0
         self.homePages = GetUseHomePage()
+
   
     name = "csdnBlogSpyder"  
     #减慢爬取速度 为5s  
-    download_delay = 1 
+    download_delay = 3 
     allowed_domains = ["blog.csdn.net" , "my.csdn.net"] 
     
     start_urls = [  
@@ -37,11 +39,13 @@ class BlogSpider(Spider):
         article_url = response.url  
         article_name = sel.xpath('//div[@id="article_details"]/div/h1/span/a/text()').extract()  
         article_content=sel.xpath("//div[@id='article_content']").extract()
-        item['pageTitle'] = [n.encode('utf-8') for n in article_name]  
-        item['pageUrl'] =  article_url
-        item['pageContent'] =[n.encode('utf-8') for n in article_content] 
+
+        item['pageTitle'] = article_name[0]
+        item['pageUrl']  = article_url
+        item['pageContent']  = html2text(article_content[0])
         item["pageID"] = self.pageNumber
-        item["pageMD5"] =GetMD5.getMD5(item["pageUrl"])        
+        item["pageMD5"] =GetMD5.getMD5(item["pageUrl"])     
+     
         yield item
         self.pageNumber = self.pageNumber +1
         urls = sel.xpath('//li[@class="prev_article"]/a/@href').extract()  
