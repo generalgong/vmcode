@@ -19,7 +19,7 @@ class BlogSpider(Spider):
   
     name = "csdnBlogSpyder"  
     #减慢爬取速度 为5s  
-    download_delay = 3 
+    download_delay = 2 
     allowed_domains = ["blog.csdn.net" , "my.csdn.net"] 
     
     start_urls = [  

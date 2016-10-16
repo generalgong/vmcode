@@ -16,5 +16,6 @@ class BlogspyderItem(scrapy.Item):
     pageTitle=scrapy.Field()#title
     pageContent=scrapy.Field()#提取body中的内容
     pagePubDate=scrapy.Field()#页面发布日期
+    pageRank  =scrapy.Field()#pageRank value
     outLinks = scrapy.Field()
     pass

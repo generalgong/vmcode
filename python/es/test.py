@@ -1,3 +1,9 @@
-import ES
+from elasticsearch import Elasticsearch
+es = Elasticsearch("brian1")
+itemDic = {}
+itemDic["pageUrl"] = "testES"
+itemDic["pageID"] = "testPageID"
+itemDic["pageTitle"] = "testPageTitle"
+itemDic["pageContent"] = "page count cont "
 
-es = ES.connect_host()
+es.create(index="blog", doc_type="csdn",body=itemDic)
