@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>ExtJs</title>
+    <link href="/static/ext-4.2/resources/css/ext-all.css" rel="stylesheet" type="text/css" />
+    <script src="/static/ext-4.2/ext-all-debug-w-comments.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.onReady(function () {
+            //创建一个窗体
+            var win = new Ext.Window({
+                width: 300,
+                height:300,
+                items: [],
+                modal: true,
+                buttonAlign: 'center',
+                buttons: [{
+                    text: '测试', id: 'btnTest', handler: function () {
+                        Ext.Msg.show({
+                            title: '询问',
+                            msg: '您喜欢 ExtJs 吗？',
+                            fn: processResult,
+                            icon: Ext.Msg.QUESTION,
+                            buttons: Ext.Msg.YESNO
+                        });
+                    }
+                }
+                ]
+            });
+            win.show();
+        });
+
+        //询问对话框处理Handler
+        function processResult(btn) {
+            Ext.Msg.alert('结果', btn);
+        }
+    </script>
+</head>
+<body>
+    <div>
+    </div>
+</body>
+</html>
