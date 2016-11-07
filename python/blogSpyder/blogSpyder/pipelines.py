@@ -14,7 +14,7 @@ class BlogspyderPipeline(object):
     def __init__(self):
       
         self.itemDic = {"pageUrl":"" ,"pageID":"","pageTitle":"","pageContent":"","pageRank":"" }
-        self.es = Elasticsearch("brian1")
+        self.es = Elasticsearch("localhost")
         self.buffer_userName = 'userName'
         self.buffer_pageRank = -1.0
         self.default_pageRank = 0.00000001

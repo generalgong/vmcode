@@ -8,7 +8,7 @@ class GetUseHomePage():
         self.homePageList = iter(self.doSelect())
      
      def doSelect(self):
-         sql = "select pageID , userName from BlogUser order by pageID ASC limit 2 "
+         sql = "select pageID , userName from BlogUser order by pageID ASC limit 5087,50000 "
          con = MySQLdb.connect("brian1" , "brian","general","csdn")
          cur = con.cursor()
          try:
@@ -18,8 +18,7 @@ class GetUseHomePage():
     		  for row in results:
     			fname.append(row[1])
        
-    		  homePages = map(lambda x: "http://my.csdn.net/service/main/get_user_contribute?type=blog&username="+x , fname)
-    	        
+    		  homePages = map(lambda x: "http://my.csdn.net/service/main/get_user_contribute?type=blog&username="+x , fname)    	        
     		  return homePages
          except:
     	        print "execute select failed. \n" 
